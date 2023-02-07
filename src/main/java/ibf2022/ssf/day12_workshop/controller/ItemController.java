@@ -27,7 +27,7 @@ public class ItemController {
         return "cart";
     }
 
-    @GetMapping({ "{itemname}" })
+    @GetMapping("{itemname}")
     public String filteredCart(@PathVariable(name = "itemname") String itemName, Model model) {
         List<Item> items = itemService.retrieveItemList();
         List<Item> foundItem = items.stream().filter(item -> item.getItemName().equalsIgnoreCase(itemName))
